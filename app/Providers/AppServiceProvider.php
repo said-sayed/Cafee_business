@@ -24,10 +24,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    
     {
         $notifications = Notification::get();
 
-        View::share("notifications", $notifications);
+        View::share(["notifications"=> $notifications]);
     }
 }
