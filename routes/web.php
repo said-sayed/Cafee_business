@@ -18,6 +18,7 @@ use App\Http\Controllers\MenuCategoryController;
 use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OurFeatureController;
+use App\Http\Controllers\TableController;
 use App\Models\Admin;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,13 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/dashboard/booking/{id}/show', [BookingController::class, 'show']);
     Route::delete('/dashboard/booking/{id}', [BookingController::class, 'delete']);
 
+    // Tables 
+    Route::get('/dashboard/table', [TableController::class, 'index']);
+    Route::get('/dashboard/table/create', [TableController::class, 'create']);
+    Route::post('/dashboard/table/store', [TableController::class, 'store']);
+    Route::get('/dashboard/table/{id}/edit', [TableController::class, 'edit']);
+    Route::put('/dashboard/table/{id}', [TableController::class, 'update']);
+    Route::delete('/dashboard/table/{id}', [TableController::class, 'delete']);
 
     //about
     Route::get('/dashboard/about', [AboutController::class, 'index']);
